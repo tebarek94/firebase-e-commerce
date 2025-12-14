@@ -1,0 +1,157 @@
+// import { useState } from "react";
+// import { app } from "./config/firebaseConfig";
+// import {
+//   getAuth,
+//   createUserWithEmailAndPassword,
+//   signInWithEmailAndPassword,
+//   GoogleAuthProvider,
+//   signInWithPopup,
+//   GithubAuthProvider,
+// } from "firebase/auth";
+
+// export default function App() {
+//   const [data, setData] = useState({
+//     email: "",
+//     password: "",
+//   });
+
+//   const auth = getAuth(app);
+
+//   const handleChange = (event) => {
+//     setData({
+//       ...data,
+//       [event.target.name]: event.target.value,
+//     });
+//   };
+
+//   // SIGN UP
+//   const handleSignUp = (event) => {
+//     event.preventDefault();
+
+//     createUserWithEmailAndPassword(auth, data.email, data.password)
+//       .then((userCredential) => {
+//         console.log("User created:", userCredential.user);
+//         alert("Signup successful");
+//       })
+//       .catch((error) => {
+//         console.error(error.code, error.message);
+//         alert(error.message);
+//       });
+//   };
+
+//   // LOGIN
+//   const handleSignIn = (event) => {
+//     event.preventDefault();
+
+//     signInWithEmailAndPassword(auth, data.email, data.password)
+//       .then((userCredential) => {
+//         console.log("User logged in:", userCredential.user);
+//         alert("Login successful");
+//       })
+//       .catch((error) => {
+//         console.error(error.code, error.message);
+//         alert(error.message);
+//       });
+//   };
+
+//   // LOGIN WITH GOOGLE
+//   const handleGoogleSignIn = () => {
+//     const provider = new GoogleAuthProvider();
+
+//     signInWithPopup(auth, provider)
+//       .then((result) => {
+//         const user = result.user;
+//         console.log("Google sign-in successful:", user);
+//         alert("Google sign-in successful");
+//       })
+//       .catch((error) => {
+//         console.error(error.code, error.message);
+//         alert(error.message);
+//       });
+//   }; // ✅ FIXED: function properly closed
+
+//   // Github Sign-In (optional)
+//   const handleGithubSignIn = () => {
+//     const provider = new GithubAuthProvider();
+
+//     signInWithPopup(auth, provider)
+//       .then((result) => {
+//         const user = result.user;
+//         console.log("GitHub sign-in successful:", user);
+//         alert("GitHub sign-in successful");
+//       })
+//       .catch((error) => {
+//         console.error(error.code, error.message);
+//         alert(error.message);
+//       });
+//   };
+
+//   return (
+//     <div className="App">
+//       <h2>Login / Signup</h2>
+
+//       <form>
+//         <input
+//           type="email"
+//           name="email"
+//           placeholder="Email"
+//           value={data.email}
+//           onChange={handleChange}
+//           required
+//         />
+
+//         <input
+//           type="password"
+//           name="password"
+//           placeholder="Password"
+//           value={data.password}
+//           onChange={handleChange}
+//           required
+//         />
+
+//         <div style={{ marginTop: "10px" }}>
+//           <button onClick={handleSignUp}>Sign Up</button>
+
+//           <button onClick={handleSignIn} style={{ marginLeft: "10px" }}>
+//             Login
+//           </button>
+
+//           <button
+//             onClick={handleGoogleSignIn}
+//             style={{
+//               marginLeft: "10px",
+//               display: "flex",
+//               alignItems: "center",
+//               gap: "8px",
+//             }}
+//             type="button"
+//           >
+//             <img
+//               src="https://www.svgrepo.com/show/475656/google-color.svg"
+//               alt="Google"
+//               width="18"
+//             />
+//             Sign in with Google
+//           </button>
+//           <button
+//             onClick={handleGithubSignIn}
+//             style={{
+//               marginLeft: "10px",
+//               display: "flex",
+//               alignItems: "center",
+//               gap: "8px",
+//             }}
+//             type="button"
+//           >
+//             <img
+//               src="https://www.svgrepo.com/show/217753/github-icon-logo.svg"
+//               alt="GitHub"
+//               width="18"
+//             />
+//             Sign in with GitHub
+//           </button>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// }
